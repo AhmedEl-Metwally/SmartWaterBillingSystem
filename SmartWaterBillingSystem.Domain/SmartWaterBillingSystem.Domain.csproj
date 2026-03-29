@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Entities\Subscription.cs~RF4a0afa9.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Common\" />
-    <Folder Include="Entities\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Specifications\" />
   </ItemGroup>
