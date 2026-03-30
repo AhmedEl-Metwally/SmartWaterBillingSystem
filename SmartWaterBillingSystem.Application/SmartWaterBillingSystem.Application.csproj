@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="Common\" />
-    <Folder Include="Contracts\" />
     <Folder Include="DTOS\" />
     <Folder Include="Features\" />
     <Folder Include="Mapping\" />

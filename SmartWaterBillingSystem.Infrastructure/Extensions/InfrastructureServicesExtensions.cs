@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SmartWaterBillingSystem.Application.Contracts.Repositorys;
 using SmartWaterBillingSystem.Infrastructure.Data.Context;
+using SmartWaterBillingSystem.Infrastructure.Repositories;
 
 namespace SmartWaterBillingSystem.Infrastructure.Extensions
 {
@@ -13,6 +15,9 @@ namespace SmartWaterBillingSystem.Infrastructure.Extensions
             {
                 option.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"));
             });
+
+            Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+            Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return Services;
         }
