@@ -2,7 +2,7 @@
 
 namespace SmartWaterBillingSystem.API.Extensions
 {
-    public static class UseSwaggerUiMiddleware
+    public static class UseSwaggerUiMiddlewareExtensions
     {
         public static WebApplication UseOpenApiUi(this WebApplication app)
         {

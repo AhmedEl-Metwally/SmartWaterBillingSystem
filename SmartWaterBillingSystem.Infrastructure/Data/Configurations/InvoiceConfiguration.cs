@@ -13,8 +13,8 @@ namespace SmartWaterBillingSystem.Infrastructure.Data.Configurations
             builder.HasOne(I => I.Subscription).WithMany(I => I.Invoices).HasForeignKey(I => I.SubscriptionNumber).OnDelete(DeleteBehavior.Restrict);
             builder.HasOne(I => I.Subscriber).WithMany().HasForeignKey(I => I.SubscriberNumber).OnDelete(DeleteBehavior.Restrict);
             builder.HasOne(I => I.RealEstateType).WithMany().HasForeignKey(I => I.HouseType).OnDelete(DeleteBehavior.Restrict);
-
-            builder.Property(I => I.InvoiceNumber).HasColumnType("char(10)").HasDefaultValueSql("FORMAT(NEXT VALUE FOR InvoiceNumbersSequence, '0000000000')");
+            //"FORMAT(NEXT VALUE FOR InvoiceNumbersSequence, '0000000000')"
+            builder.Property(I => I.InvoiceNumber).HasColumnType("char(10)").HasDefaultValueSql("('INV' + CAST(YEAR(GETDATE()) AS VARCHAR) + FORMAT(NEXT VALUE FOR InvoiceNumbersSequence, '000'))");
             builder.Property(I => I.SubscriberNumber).HasColumnType("char(10)");
             builder.Property(I => I.SubscriptionNumber).HasColumnType("char(10)");
             builder.Property(I => I.HouseType).HasColumnType("char(1)").IsRequired();

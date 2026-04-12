@@ -7,7 +7,7 @@ namespace SmartWaterBillingSystem.Application.Validations
     {
         public InvoiceValidator()
         {
-            RuleFor(I => I.InvoiceNumber).NotEmpty().WithMessage("Invoice number is required.").Length(10).WithMessage("Invoice number must be 10 characters long.");
+            RuleFor(I => I.InvoiceNumber).MaximumLength(10).WithMessage("Invoice number must be 10 characters long.");
             RuleFor(I => I.FiscalYear).NotEmpty().WithMessage("Fiscal year is required.").Length(2).WithMessage("Fiscal year must be 2 characters long.");  
             RuleFor(I => I.HouseType).NotEmpty().WithMessage("House type is required.").Length(1).WithMessage("House type must be 1 character long.");
             RuleFor(I => I.SubscriptionNumber).NotEmpty().WithMessage("Subscription number is required.").Length(10).WithMessage("Subscription number must be 10 characters long.");
