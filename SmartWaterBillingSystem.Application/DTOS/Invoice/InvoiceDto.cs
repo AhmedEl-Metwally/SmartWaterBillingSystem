@@ -1,4 +1,4 @@
-﻿namespace SmartWaterBillingSystem.Application.DTOS
+﻿namespace SmartWaterBillingSystem.Application.DTOS.Invoice
 {
     public record InvoiceDto
     {

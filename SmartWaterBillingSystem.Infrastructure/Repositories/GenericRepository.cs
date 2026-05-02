@@ -24,9 +24,14 @@ namespace SmartWaterBillingSystem.Infrastructure.Repositories
         public async Task<TEntity?> GetEntityWithSpecificationAsync(ISpecification<TEntity> specification)
             => await ApplySpecification(specification).FirstOrDefaultAsync();
 
+        public async Task<IReadOnlyList<TEntity>> GetIReadOnlyListWithSpecificationAsync(ISpecification<TEntity> specification)
+            => await ApplySpecification(specification).ToListAsync();
+
+
 
         // Helper method to apply specification
         private IQueryable<TEntity> ApplySpecification(ISpecification<TEntity> specification)
             => SpecificationEvaluator.Default.GetQuery(_context.Set<TEntity>().AsQueryable(), specification);
+
     }
 }

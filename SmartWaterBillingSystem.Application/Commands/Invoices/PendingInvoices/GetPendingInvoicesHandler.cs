@@ -2,9 +2,9 @@
 using MediatR;
 using SmartWaterBillingSystem.Application.Common.Models;
 using SmartWaterBillingSystem.Application.Contracts.Repositorys;
-using SmartWaterBillingSystem.Application.DTOS;
+using SmartWaterBillingSystem.Application.DTOS.Invoice;
 using SmartWaterBillingSystem.Domain.Entities;
-using SmartWaterBillingSystem.Domain.Specifications;
+using SmartWaterBillingSystem.Domain.Specifications.Invoices;
 
 namespace SmartWaterBillingSystem.Application.Commands.Invoices.PendingInvoices
 {

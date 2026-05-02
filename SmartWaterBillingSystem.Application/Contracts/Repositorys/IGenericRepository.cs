@@ -11,5 +11,6 @@ namespace SmartWaterBillingSystem.Application.Contracts.Repositorys
         void Delete(TEntity entity);
         Task<IEnumerable<TEntity>> GetWithSpecificationAsync(ISpecification<TEntity> specification);
         Task<TEntity?> GetEntityWithSpecificationAsync(ISpecification<TEntity> specification);
+        Task<IReadOnlyList<TEntity>> GetIReadOnlyListWithSpecificationAsync(ISpecification<TEntity> specification);
     }
 }

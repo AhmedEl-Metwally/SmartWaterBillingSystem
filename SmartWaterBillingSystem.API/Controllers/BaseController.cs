@@ -24,10 +24,9 @@ namespace SmartWaterBillingSystem.API.Controllers
             {
                 var problemDetails = new ModelStateDictionary();
                 foreach (var error in errors)
-                {
                     ModelState.AddModelError(error.Code, error.Message);
-                    return ValidationProblem(ModelState);
-                }
+
+                return ValidationProblem(ModelState);
             }
 
             var firstError = errors[0];

@@ -2,9 +2,9 @@
 using MediatR;
 using SmartWaterBillingSystem.Application.Common.Models;
 using SmartWaterBillingSystem.Application.Contracts.Repositorys;
-using SmartWaterBillingSystem.Application.DTOS;
+using SmartWaterBillingSystem.Application.DTOS.Invoice;
 using SmartWaterBillingSystem.Domain.Entities;
-using SmartWaterBillingSystem.Domain.Specifications;
+using SmartWaterBillingSystem.Domain.Specifications.Invoices;
 
 namespace SmartWaterBillingSystem.Application.Commands.Invoices.InvoiceByNumbers
 {
@@ -16,7 +16,7 @@ namespace SmartWaterBillingSystem.Application.Commands.Invoices.InvoiceByNumbers
             //var invoice = await _unitOfWork.GetRepository<Invoice>().GetWithSpecificationAsync(specification);
             var invoice = await _unitOfWork.GetRepository<Invoice>().GetEntityWithSpecificationAsync(specification);
 
-            if(invoice == null)
+            if (invoice == null)
                 return Result<InvoiceDto>.Failure("InvoiceNotFound", $"No invoice found with number {request.InvoiceNumber}", ErrorType.NotFound);
 
             return Result<InvoiceDto>.Success(invoice.Adapt<InvoiceDto>());
