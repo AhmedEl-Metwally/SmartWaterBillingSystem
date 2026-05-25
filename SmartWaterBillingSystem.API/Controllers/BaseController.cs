@@ -8,14 +8,14 @@ namespace SmartWaterBillingSystem.API.Controllers
     [ApiController]
     public class BaseController : ControllerBase
     {
-        protected ActionResult HandleResult<T>(Result<T> result)
+        protected IActionResult HandleResult<T>(Result<T> result)
         {
             if (result.IsSuccess)
                 return Ok(result);
             return HandleProblem(result.Errors);
         }
 
-        private ActionResult HandleProblem(List<ErrorDetails> errors)
+        private IActionResult HandleProblem(List<ErrorDetails> errors)
         {
             if (errors.Count == 0)
                 return Problem(statusCode: 500, title: "An unexpected error occurred.");
