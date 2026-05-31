@@ -99,6 +99,7 @@ namespace SmartWaterBillingSystem.Application.Commands.Invoices.CreateInvoice
                 TheValueOfWaterConsumption = water,
                 WasteWaterConsumptionValue = water * 0.50m,
                 ServiceFee = service,
+                TaxFee = (water + service) * 0.14m, 
                 TotalBill = total,
                 TotalInvoice = total,
                 InvoiceDate = DateTime.Now,
