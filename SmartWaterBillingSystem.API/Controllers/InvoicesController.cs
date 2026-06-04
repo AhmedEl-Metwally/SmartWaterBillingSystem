@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SmartWaterBillingSystem.Application.Commands.Invoices.CreateInvoice;
-using SmartWaterBillingSystem.Application.Commands.Invoices.GetInvoicePdf;
-using SmartWaterBillingSystem.Application.Commands.Invoices.InvoiceByNumbers;
-using SmartWaterBillingSystem.Application.Commands.Invoices.PendingInvoices;
-using SmartWaterBillingSystem.Application.Commands.Invoices.SubscriptionInvoices;
+using SmartWaterBillingSystem.Application.Features.Commands.Invoices.CreateInvoice;
+using SmartWaterBillingSystem.Application.Features.Querys.Invoices.GetInvoicePdf;
+using SmartWaterBillingSystem.Application.Features.Querys.Invoices.InvoiceByNumbers;
+using SmartWaterBillingSystem.Application.Features.Querys.Invoices.PendingInvoices;
+using SmartWaterBillingSystem.Application.Features.Querys.Invoices.SubscriptionInvoices;
 
 namespace SmartWaterBillingSystem.API.Controllers
 {

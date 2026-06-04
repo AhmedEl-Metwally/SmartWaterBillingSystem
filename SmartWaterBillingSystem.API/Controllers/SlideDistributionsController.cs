@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SmartWaterBillingSystem.Application.Commands.SlideDistributions.GetAllSlideDistribution;
-using SmartWaterBillingSystem.Application.Commands.SlideDistributions.UpdateSlideDistribution;
 using SmartWaterBillingSystem.Application.DTOS.SlideDistribution;
+using SmartWaterBillingSystem.Application.Features.Commands.SlideDistributions.UpdateSlideDistribution;
+using SmartWaterBillingSystem.Application.Features.Querys.SlideDistributions.GetAllSlideDistribution;
 
 namespace SmartWaterBillingSystem.API.Controllers
 {

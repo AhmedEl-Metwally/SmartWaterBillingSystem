@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using SmartWaterBillingSystem.Application.Commands.Invoices.CreateInvoice;
+using SmartWaterBillingSystem.Application.Features.Commands.Invoices.CreateInvoice;
 
 namespace SmartWaterBillingSystem.Application.Validations
 {

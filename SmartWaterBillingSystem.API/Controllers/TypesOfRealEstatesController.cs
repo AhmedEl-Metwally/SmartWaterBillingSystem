@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SmartWaterBillingSystem.Application.Commands.TypesOfRealEstates.CreateTypesOfRealEstate;
-using SmartWaterBillingSystem.Application.Commands.TypesOfRealEstates.DeleteTypesOfRealEstate;
-using SmartWaterBillingSystem.Application.Commands.TypesOfRealEstates.GetAllTypesOfRealEstate;
-using SmartWaterBillingSystem.Application.Commands.TypesOfRealEstates.UpdateTypesOfRealEstate;
 using SmartWaterBillingSystem.Application.DTOS.TypesOfRealEstate;
+using SmartWaterBillingSystem.Application.Features.Commands.TypesOfRealEstates.CreateTypesOfRealEstate;
+using SmartWaterBillingSystem.Application.Features.Commands.TypesOfRealEstates.DeleteTypesOfRealEstate;
+using SmartWaterBillingSystem.Application.Features.Commands.TypesOfRealEstates.UpdateTypesOfRealEstate;
+using SmartWaterBillingSystem.Application.Features.Querys.TypesOfRealEstates.GetAllTypesOfRealEstate;
 
 namespace SmartWaterBillingSystem.API.Controllers
 {
@@ -23,7 +23,7 @@ namespace SmartWaterBillingSystem.API.Controllers
         //Modify existing type
         [HttpPut("{houseType}")]
         public async Task<IActionResult> UpdateTypesOfRealEstateAsync(string houseType, UpdateTypesOfRealEstateDto updateTypesOfRealEstateDto)
-            => HandleResult(await _mediator.Send(new UpdateTypesOfRealEstateCommand(houseType,updateTypesOfRealEstateDto)));
+            => HandleResult(await _mediator.Send(new UpdateTypesOfRealEstateCommand(houseType, updateTypesOfRealEstateDto)));
 
         //Delete type
         [HttpDelete("{houseType}")]

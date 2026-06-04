@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SmartWaterBillingSystem.Application.Commands.Subscribers.CreateSubscriber;
-using SmartWaterBillingSystem.Application.Commands.Subscribers.DeleteSubscriber;
-using SmartWaterBillingSystem.Application.Commands.Subscribers.GetSubscriberById;
 using SmartWaterBillingSystem.Application.DTOS.Subscriber;
+using SmartWaterBillingSystem.Application.Features.Commands.Subscribers.CreateSubscriber;
+using SmartWaterBillingSystem.Application.Features.Commands.Subscribers.DeleteSubscriber;
+using SmartWaterBillingSystem.Application.Features.Querys.Subscribers.GetSubscriberById;
 
 namespace SmartWaterBillingSystem.API.Controllers
 {
