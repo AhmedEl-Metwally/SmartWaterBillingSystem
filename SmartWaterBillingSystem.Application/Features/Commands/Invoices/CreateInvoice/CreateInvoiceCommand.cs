@@ -7,10 +7,8 @@ namespace SmartWaterBillingSystem.Application.Features.Commands.Invoices.CreateI
     public record CreateInvoiceCommand : IRequest<Result<InvoiceDto>>
     {
         public string SubscriptionNumber { get; init; } = string.Empty;
-
         public int CurrentReading { get; init; }
         public decimal CurrencyRate { get; init; } = 1.5m;
-
         public DateTime FromTheDateOf { get; init; }
         public DateTime FromTheDateTo { get; init; }
     }

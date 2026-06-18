@@ -1,3 +1,4 @@
+using Hangfire;
 using SmartWaterBillingSystem.API.Extensions;
 using SmartWaterBillingSystem.Application.Extensions;
 using SmartWaterBillingSystem.Infrastructure.Extensions;
@@ -14,6 +15,8 @@ builder.Services.AddOpenApiConfiguration();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseStaticFiles();
 app.UseOpenApiUi();
 app.ConfigureWebApplication();
+app.UseHangfireDashboard();
 app.Run();

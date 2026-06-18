@@ -7,7 +7,7 @@ namespace SmartWaterBillingSystem.Domain.Specifications.Invoices
     {
         public InvoiceWithSubscriberDetailsSpecification(string invoiceNumber)
         {
-            Query.Where(I => I.InvoiceNumber == invoiceNumber).Include(I => I.Subscriber);
+            Query.Where(I => I.InvoiceNumber == invoiceNumber).Include(I => I.Subscription).ThenInclude(I => I.Subscriber);
         }
     }
 }

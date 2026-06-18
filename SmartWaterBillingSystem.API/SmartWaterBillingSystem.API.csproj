@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="ExceptionHandlers\" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -3,24 +3,28 @@ using MediatR;
 using SmartWaterBillingSystem.Application.Common.Models;
 using SmartWaterBillingSystem.Application.Contracts.Repositorys;
 using SmartWaterBillingSystem.Application.DTOS.Invoice;
+using SmartWaterBillingSystem.Application.Features.Commands.Invoices.CreateInvoiceEvents;
 using SmartWaterBillingSystem.Domain.Entities;
 using SmartWaterBillingSystem.Domain.Specifications.Invoices;
 
 namespace SmartWaterBillingSystem.Application.Features.Commands.Invoices.CreateInvoice
 {
-    public class CreateInvoiceHandler(IUnitOfWork _unitOfWork) : IRequestHandler<CreateInvoiceCommand, Result<InvoiceDto>>
+    public class CreateInvoiceHandler(IUnitOfWork _unitOfWork, IMediator _mediator) : IRequestHandler<CreateInvoiceCommand, Result<InvoiceDto>>
     {
         public async Task<Result<InvoiceDto>> Handle(CreateInvoiceCommand request, CancellationToken cancellationToken)
         {
+            // 1. Check for subscription
             var subscriptionSpecification = new SubscriptionWithDetailsSpecification(request.SubscriptionNumber);
             var subscription = await _unitOfWork.GetRepository<Subscription>().GetEntityWithSpecificationAsync(subscriptionSpecification);
-            if (subscription == null)
+            if (subscription is null)
                 return CreateError("NotFound", "Subscription not found", ErrorType.NotFound);
 
+            // 2. Retrieve the account chips
             var slideDistribution = await GetOrderedSlabsAsync(subscription.HouseType);
             if (!slideDistribution.Any())
                 return CreateError("SlideDistributionMissing", "Slide distribution not found", ErrorType.Failure);
 
+            // 3. Calculating consumption
             int consumption = request.CurrentReading - subscription.TheLastReadingOfTheMeter;
             if (consumption < 0)
                 return CreateError("InvalidReading", "Current reading cannot be less than the last reading", ErrorType.ValidationError);
@@ -30,20 +34,24 @@ namespace SmartWaterBillingSystem.Application.Features.Commands.Invoices.CreateI
             decimal serviceFee = GetServiceFee(slideDistribution, perUnit) * subscription.TheNumberOfFloorsOfTheHouse;
             decimal finalTotal = CalculateFinalBill(waterValue, serviceFee, request.CurrencyRate);
 
+            // 4. Generate the invoice number from the sequence
             int nextSequenceValue = await _unitOfWork.GetNextSequenceValueAsync("InvoiceNumbersSequence");
             string generatedInvoiceNumber = $"INV{DateTime.Now.Year}{nextSequenceValue.ToString("D3")}";
-            var invoice = MapToInvoice(request, subscription, consumption, waterValue, serviceFee, finalTotal, generatedInvoiceNumber);
 
+            // 5. Mapping and saving in the database
+            var invoice = MapToInvoice(request, subscription, consumption, waterValue, serviceFee, finalTotal, generatedInvoiceNumber);
             await _unitOfWork.GetRepository<Invoice>().AddAsync(invoice);
             subscription.TheLastReadingOfTheMeter = request.CurrentReading;
             await _unitOfWork.SaveChangesAsync();
+
+            // 6.  Publish the event in the tasks chapter
+            await _mediator.Publish(new CreateInvoiceEvent(invoice.InvoiceNumber, subscription.SubscriptionNumber));
 
             return new Result<InvoiceDto> { IsSuccess = true, Value = invoice.Adapt<InvoiceDto>() };
         }
 
 
         // Helper Methods
-
         private Result<InvoiceDto> CreateError(string code, string message, ErrorType type)
             => new()
             {
@@ -99,13 +107,13 @@ namespace SmartWaterBillingSystem.Application.Features.Commands.Invoices.CreateI
                 TheValueOfWaterConsumption = water,
                 WasteWaterConsumptionValue = water * 0.50m,
                 ServiceFee = service,
-                TaxFee = (water + service) * 0.14m, 
+                TaxFee = (water + (water * 0.50m) + service) * 0.14m,
                 TotalBill = total,
                 TotalInvoice = total,
                 InvoiceDate = DateTime.Now,
                 FromTheDateOf = create.FromTheDateOf,
                 FromTheDateTo = create.FromTheDateTo,
-                FiscalYear = create.FromTheDateTo.Year.ToString().Substring(2),
+                FiscalYear = create.FromTheDateTo.ToString("yy"),
                 PreviousConsumptionAmount = subscription.TheLastReadingOfTheMeter,
                 CurrentConsumptionAmount = create.CurrentReading
             };
