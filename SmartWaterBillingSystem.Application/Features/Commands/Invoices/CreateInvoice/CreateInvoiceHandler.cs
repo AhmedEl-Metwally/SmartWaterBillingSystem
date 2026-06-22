@@ -1,13 +1,4 @@
-﻿using Mapster;
-using MediatR;
-using SmartWaterBillingSystem.Application.Common.Models;
-using SmartWaterBillingSystem.Application.Contracts.Repositorys;
-using SmartWaterBillingSystem.Application.DTOS.Invoice;
-using SmartWaterBillingSystem.Application.Features.Commands.Invoices.CreateInvoiceEvents;
-using SmartWaterBillingSystem.Domain.Entities;
-using SmartWaterBillingSystem.Domain.Specifications.Invoices;
-
-namespace SmartWaterBillingSystem.Application.Features.Commands.Invoices.CreateInvoice
+﻿namespace SmartWaterBillingSystem.Application.Features.Commands.Invoices.CreateInvoice
 {
     public class CreateInvoiceHandler(IUnitOfWork _unitOfWork, IMediator _mediator) : IRequestHandler<CreateInvoiceCommand, Result<InvoiceDto>>
     {

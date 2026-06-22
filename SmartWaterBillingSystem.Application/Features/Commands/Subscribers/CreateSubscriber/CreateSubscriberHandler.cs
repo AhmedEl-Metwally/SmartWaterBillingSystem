@@ -1,10 +1,4 @@
-﻿using Mapster;
-using MediatR;
-using SmartWaterBillingSystem.Application.Common.Models;
-using SmartWaterBillingSystem.Application.Contracts.Repositorys;
-using SmartWaterBillingSystem.Domain.Entities;
-
-namespace SmartWaterBillingSystem.Application.Features.Commands.Subscribers.CreateSubscriber
+﻿namespace SmartWaterBillingSystem.Application.Features.Commands.Subscribers.CreateSubscriber
 {
     public class CreateSubscriberHandler(IUnitOfWork _unitOfWork) : IRequestHandler<CreateSubscriberCommand, Result<string>>
     {

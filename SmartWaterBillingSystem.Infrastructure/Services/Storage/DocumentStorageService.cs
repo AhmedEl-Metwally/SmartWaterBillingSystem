@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using SmartWaterBillingSystem.Application.Contracts.Storage;
-
-namespace SmartWaterBillingSystem.Infrastructure.Services.Storage
+﻿namespace SmartWaterBillingSystem.Infrastructure.Services.Storage
 {
     public class DocumentStorageService(IWebHostEnvironment webHostEnvironment, IHttpContextAccessor httpContextAccessor) : IDocumentStorageService
     {

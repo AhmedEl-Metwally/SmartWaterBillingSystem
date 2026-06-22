@@ -1,6 +1,4 @@
-﻿using SmartWaterBillingSystem.Application.DTOS.WhatsAppMessage;
-
-namespace SmartWaterBillingSystem.Application.Contracts.WhatsAppMessage
+﻿namespace SmartWaterBillingSystem.Application.Contracts.WhatsAppMessage
 {
     public interface IWhatsAppMessageService
     {

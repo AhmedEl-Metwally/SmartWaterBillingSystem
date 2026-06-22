@@ -1,11 +1,4 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using SmartWaterBillingSystem.Application.DTOS.Subscriber;
-using SmartWaterBillingSystem.Application.Features.Commands.Subscribers.CreateSubscriber;
-using SmartWaterBillingSystem.Application.Features.Commands.Subscribers.DeleteSubscriber;
-using SmartWaterBillingSystem.Application.Features.Querys.Subscribers.GetSubscriberById;
-
-namespace SmartWaterBillingSystem.API.Controllers
+﻿namespace SmartWaterBillingSystem.API.Controllers
 {
     public class SubscribersController(IMediator _mediator) : BaseController
     {

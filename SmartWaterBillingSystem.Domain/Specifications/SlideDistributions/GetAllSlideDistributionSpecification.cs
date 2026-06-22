@@ -1,7 +1,4 @@
-﻿using Ardalis.Specification;
-using SmartWaterBillingSystem.Domain.Entities;
-
-namespace SmartWaterBillingSystem.Domain.Specifications.SlideDistributions
+﻿namespace SmartWaterBillingSystem.Domain.Specifications.SlideDistributions
 {
     public class GetAllSlideDistributionSpecification : Specification<SlideDistribution>
     {

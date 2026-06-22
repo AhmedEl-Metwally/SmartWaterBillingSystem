@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SmartWaterBillingSystem.Domain.Entities;
-
-namespace SmartWaterBillingSystem.Infrastructure.Data.Configurations
+﻿namespace SmartWaterBillingSystem.Infrastructure.Data.Configurations
 {
     public class InvoiceConfiguration : IEntityTypeConfiguration<Invoice>
     {

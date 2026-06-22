@@ -1,8 +1,4 @@
-﻿using Ardalis.Specification;
-using SmartWaterBillingSystem.Domain.Entities;
-
-
-namespace SmartWaterBillingSystem.Domain.Specifications.TypesOfRealEstates
+﻿namespace SmartWaterBillingSystem.Domain.Specifications.TypesOfRealEstates
 {
     public class TypesOfRealEstateSpecification : Specification<TypesOfRealEstate>
     {

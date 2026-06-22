@@ -1,7 +1,4 @@
-﻿using FluentValidation;
-using SmartWaterBillingSystem.Domain.Entities;
-
-namespace SmartWaterBillingSystem.Application.Validations
+﻿namespace SmartWaterBillingSystem.Application.Validations
 {
     public class SubscriptionValidator : AbstractValidator<Subscription>
     {

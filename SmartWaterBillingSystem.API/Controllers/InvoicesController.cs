@@ -1,12 +1,4 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using SmartWaterBillingSystem.Application.Features.Commands.Invoices.CreateInvoice;
-using SmartWaterBillingSystem.Application.Features.Querys.Invoices.GetInvoicePdf;
-using SmartWaterBillingSystem.Application.Features.Querys.Invoices.InvoiceByNumbers;
-using SmartWaterBillingSystem.Application.Features.Querys.Invoices.PendingInvoices;
-using SmartWaterBillingSystem.Application.Features.Querys.Invoices.SubscriptionInvoices;
-
-namespace SmartWaterBillingSystem.API.Controllers
+﻿namespace SmartWaterBillingSystem.API.Controllers
 {
     public class InvoicesController(IMediator _mediator) : BaseController
     {

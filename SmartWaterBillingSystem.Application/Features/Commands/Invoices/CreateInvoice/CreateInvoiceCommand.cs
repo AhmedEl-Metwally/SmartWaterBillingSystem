@@ -1,8 +1,4 @@
-﻿using MediatR;
-using SmartWaterBillingSystem.Application.Common.Models;
-using SmartWaterBillingSystem.Application.DTOS.Invoice;
-
-namespace SmartWaterBillingSystem.Application.Features.Commands.Invoices.CreateInvoice
+﻿namespace SmartWaterBillingSystem.Application.Features.Commands.Invoices.CreateInvoice
 {
     public record CreateInvoiceCommand : IRequest<Result<InvoiceDto>>
     {

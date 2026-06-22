@@ -1,12 +1,4 @@
-﻿using Mapster;
-using MediatR;
-using SmartWaterBillingSystem.Application.Common.Models;
-using SmartWaterBillingSystem.Application.Contracts.Repositorys;
-using SmartWaterBillingSystem.Application.DTOS.SlideDistribution;
-using SmartWaterBillingSystem.Domain.Entities;
-using SmartWaterBillingSystem.Domain.Specifications.SlideDistributions;
-
-namespace SmartWaterBillingSystem.Application.Features.Querys.SlideDistributions.GetAllSlideDistribution
+﻿namespace SmartWaterBillingSystem.Application.Features.Querys.SlideDistributions.GetAllSlideDistribution
 {
     public class GetSlidesByHouseTypeHandler(IUnitOfWork _unitOfWork) : IRequestHandler<GetAllSlideDistributionQuery, Result<IEnumerable<SlideDistributionDto>>>
     {

@@ -1,10 +1,4 @@
-﻿using QuestPDF.Fluent;
-using QuestPDF.Helpers;
-using QuestPDF.Infrastructure;
-using SmartWaterBillingSystem.Application.Contracts.PDF;
-using SmartWaterBillingSystem.Domain.Entities;
-
-namespace SmartWaterBillingSystem.Infrastructure.Services.PDF
+﻿namespace SmartWaterBillingSystem.Infrastructure.Services.PDF
 {
     public class PdfService : IPdfService
     {

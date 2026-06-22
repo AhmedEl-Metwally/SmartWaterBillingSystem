@@ -1,12 +1,4 @@
-﻿using Microsoft.Extensions.Options;
-using SmartWaterBillingSystem.Application.Contracts.WhatsAppMessage;
-using SmartWaterBillingSystem.Application.DTOS.WhatsAppMessage;
-using SmartWaterBillingSystem.Infrastructure.Services.WhatsAppMessage.Requests;
-using SmartWaterBillingSystem.Infrastructure.Settings;
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
-
-namespace SmartWaterBillingSystem.Infrastructure.Services.WhatsAppMessage.Implementation
+﻿namespace SmartWaterBillingSystem.Infrastructure.Services.WhatsAppMessage.Implementation
 {
     public class WhatsAppMessageService : IWhatsAppMessageService
     {
@@ -66,7 +58,7 @@ namespace SmartWaterBillingSystem.Infrastructure.Services.WhatsAppMessage.Implem
                         }
                     }
                 };
-                var response = await _httpClient.PostAsJsonAsync(endPoinnt,payload);
+                var response = await _httpClient.PostAsJsonAsync(endPoinnt, payload);
                 return response.IsSuccessStatusCode;
             }
             catch (Exception)

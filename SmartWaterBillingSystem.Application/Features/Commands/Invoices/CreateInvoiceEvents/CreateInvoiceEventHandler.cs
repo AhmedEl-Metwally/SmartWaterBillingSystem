@@ -1,5 +1,4 @@
 ﻿using Hangfire;
-using MediatR;
 using SmartWaterBillingSystem.Application.Contracts.BackgroundProcessor;
 
 namespace SmartWaterBillingSystem.Application.Features.Commands.Invoices.CreateInvoiceEvents

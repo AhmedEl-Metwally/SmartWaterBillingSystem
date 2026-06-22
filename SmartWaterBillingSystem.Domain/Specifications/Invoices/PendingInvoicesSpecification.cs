@@ -1,7 +1,4 @@
-﻿using Ardalis.Specification;
-using SmartWaterBillingSystem.Domain.Entities;
-
-namespace SmartWaterBillingSystem.Domain.Specifications.Invoices
+﻿namespace SmartWaterBillingSystem.Domain.Specifications.Invoices
 {
     public class PendingInvoicesSpecification : Specification<Invoice>
     {

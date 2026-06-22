@@ -1,7 +1,4 @@
-﻿using Ardalis.Specification;
-using SmartWaterBillingSystem.Domain.Entities;
-
-namespace SmartWaterBillingSystem.Domain.Specifications.Subscribers
+﻿namespace SmartWaterBillingSystem.Domain.Specifications.Subscribers
 {
     public class SubscriberSpecification : Specification<Subscriber>
     {

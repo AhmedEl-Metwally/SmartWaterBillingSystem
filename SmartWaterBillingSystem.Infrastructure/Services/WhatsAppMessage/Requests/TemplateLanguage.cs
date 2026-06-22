@@ -1,10 +1,8 @@
-﻿using System.Text.Json.Serialization;
-
-namespace SmartWaterBillingSystem.Infrastructure.Services.WhatsAppMessage.Requests
+﻿namespace SmartWaterBillingSystem.Infrastructure.Services.WhatsAppMessage.Requests
 {
     public class TemplateLanguage
     {
         [JsonPropertyName("code")]
-        public string Code { get; set; } =  "en_GB";
+        public string Code { get; set; } = "en_GB";
     }
 }

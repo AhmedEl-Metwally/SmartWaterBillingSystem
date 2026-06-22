@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SmartWaterBillingSystem.Domain.Entities;
-
-namespace SmartWaterBillingSystem.Infrastructure.Data.Configurations
+﻿namespace SmartWaterBillingSystem.Infrastructure.Data.Configurations
 {
     public class SlideDistributionConfiguration : IEntityTypeConfiguration<SlideDistribution>
     {
@@ -16,8 +12,8 @@ namespace SmartWaterBillingSystem.Infrastructure.Data.Configurations
             builder.Property(SD => SD.HouseType).HasColumnType("char(1)").IsRequired();
             builder.Property(SD => SD.SlideDescription).HasColumnType("nvarchar(50)").IsRequired();
             builder.Property(SD => SD.SlideDistributionNote).HasColumnType("nvarchar(100)");
-            builder.Property(SD => SD.PricePerCubicMeterOfWater).HasPrecision(6,2);
-            builder.Property(SD => SD.PriceServiceSewage).HasPrecision(6,2);
+            builder.Property(SD => SD.PricePerCubicMeterOfWater).HasPrecision(6, 2);
+            builder.Property(SD => SD.PriceServiceSewage).HasPrecision(6, 2);
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using SmartWaterBillingSystem.Application.Common.Models;
-
-namespace SmartWaterBillingSystem.API.Controllers
+﻿namespace SmartWaterBillingSystem.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

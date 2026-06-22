@@ -1,7 +1,4 @@
-﻿using FluentValidation;
-using MediatR;
-
-namespace SmartWaterBillingSystem.Application.Behaviors
+﻿namespace SmartWaterBillingSystem.Application.Behaviors
 {
     public class ValidationBehavior<TRequest, TResponse>(IEnumerable<IValidator<TRequest>> validators) : IPipelineBehavior<TRequest, TResponse> where TRequest : notnull
     {
@@ -20,4 +17,4 @@ namespace SmartWaterBillingSystem.Application.Behaviors
     }
 }
 
-  
+

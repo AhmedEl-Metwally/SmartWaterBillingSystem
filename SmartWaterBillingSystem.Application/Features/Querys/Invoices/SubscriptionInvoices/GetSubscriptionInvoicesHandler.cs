@@ -1,12 +1,4 @@
-﻿using Mapster;
-using MediatR;
-using SmartWaterBillingSystem.Application.Common.Models;
-using SmartWaterBillingSystem.Application.Contracts.Repositorys;
-using SmartWaterBillingSystem.Application.DTOS.Invoice;
-using SmartWaterBillingSystem.Domain.Entities;
-using SmartWaterBillingSystem.Domain.Specifications.Invoices;
-
-namespace SmartWaterBillingSystem.Application.Features.Querys.Invoices.SubscriptionInvoices
+﻿namespace SmartWaterBillingSystem.Application.Features.Querys.Invoices.SubscriptionInvoices
 {
     public class GetSubscriptionInvoicesHandler(IUnitOfWork _unitOfWork) : IRequestHandler<GetSubscriptionInvoicesQuery, Result<IEnumerable<InvoiceDto>>>
     {

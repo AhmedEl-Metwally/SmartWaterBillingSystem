@@ -13,5 +13,11 @@
             IsSuccess = false,
             Errors = [new ErrorDetails(code,message,type)]
         };
+
+        public static Result<T> Failure(List<ErrorDetails> errors) => new()
+        {
+            IsSuccess = false,
+            Errors = errors
+        };
     }
 }

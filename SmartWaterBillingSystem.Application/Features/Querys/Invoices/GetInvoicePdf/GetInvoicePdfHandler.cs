@@ -1,11 +1,4 @@
-﻿using MediatR;
-using SmartWaterBillingSystem.Application.Common.Models;
-using SmartWaterBillingSystem.Application.Contracts.PDF;
-using SmartWaterBillingSystem.Application.Contracts.Repositorys;
-using SmartWaterBillingSystem.Domain.Entities;
-using SmartWaterBillingSystem.Domain.Specifications.Invoices;
-
-namespace SmartWaterBillingSystem.Application.Features.Querys.Invoices.GetInvoicePdf
+﻿namespace SmartWaterBillingSystem.Application.Features.Querys.Invoices.GetInvoicePdf
 {
     public class GetInvoicePdfHandler(IUnitOfWork _unitOfWork, IPdfService _pdfService) : IRequestHandler<GetInvoicePdfQuery, Result<byte[]>>
     {

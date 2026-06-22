@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SmartWaterBillingSystem.Application.Contracts.Repositorys;
-using SmartWaterBillingSystem.Infrastructure.Data.Context;
-
-namespace SmartWaterBillingSystem.Infrastructure.Repositories
+﻿namespace SmartWaterBillingSystem.Infrastructure.Repositories
 {
     public class UnitOfWork(SmartWaterBillingSystemDbContext _context) : IUnitOfWork
     {
@@ -29,7 +25,7 @@ namespace SmartWaterBillingSystem.Infrastructure.Repositories
         {
             var entityType = typeof(TEntity);
             if (_repositories.TryGetValue(entityType, out object? repository))
-                return(IGenericRepository<TEntity>) repository;
+                return (IGenericRepository<TEntity>)repository;
             var newRepository = new GenericRepository<TEntity>(_context);
             _repositories[entityType] = newRepository;
             return newRepository;

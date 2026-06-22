@@ -1,8 +1,3 @@
-using Hangfire;
-using SmartWaterBillingSystem.API.Extensions;
-using SmartWaterBillingSystem.Application.Extensions;
-using SmartWaterBillingSystem.Infrastructure.Extensions;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

@@ -1,12 +1,4 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using SmartWaterBillingSystem.Application.DTOS.TypesOfRealEstate;
-using SmartWaterBillingSystem.Application.Features.Commands.TypesOfRealEstates.CreateTypesOfRealEstate;
-using SmartWaterBillingSystem.Application.Features.Commands.TypesOfRealEstates.DeleteTypesOfRealEstate;
-using SmartWaterBillingSystem.Application.Features.Commands.TypesOfRealEstates.UpdateTypesOfRealEstate;
-using SmartWaterBillingSystem.Application.Features.Querys.TypesOfRealEstates.GetAllTypesOfRealEstate;
-
-namespace SmartWaterBillingSystem.API.Controllers
+﻿namespace SmartWaterBillingSystem.API.Controllers
 {
     public class TypesOfRealEstatesController(IMediator _mediator) : BaseController
     {

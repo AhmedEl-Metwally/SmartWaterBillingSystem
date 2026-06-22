@@ -1,10 +1,4 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using SmartWaterBillingSystem.Application.DTOS.SlideDistribution;
-using SmartWaterBillingSystem.Application.Features.Commands.SlideDistributions.UpdateSlideDistribution;
-using SmartWaterBillingSystem.Application.Features.Querys.SlideDistributions.GetAllSlideDistribution;
-
-namespace SmartWaterBillingSystem.API.Controllers
+﻿namespace SmartWaterBillingSystem.API.Controllers
 {
     public class SlideDistributionsController(IMediator _mediator) : BaseController
     {

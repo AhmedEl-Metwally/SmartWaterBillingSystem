@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SmartWaterBillingSystem.Domain.Entities;
-
-namespace SmartWaterBillingSystem.Infrastructure.Data.Configurations
+﻿namespace SmartWaterBillingSystem.Infrastructure.Data.Configurations
 {
     public class SubscriberConfiguration : IEntityTypeConfiguration<Subscriber>
     {
@@ -10,7 +6,7 @@ namespace SmartWaterBillingSystem.Infrastructure.Data.Configurations
         {
             builder.HasKey(S => S.PersonalIDNumber);
 
-            builder.HasMany(S => S.Subscriptions).WithOne(Sub => Sub.Subscriber).HasForeignKey(Sub =>Sub.SubscriberNumber).OnDelete(DeleteBehavior.Restrict);
+            builder.HasMany(S => S.Subscriptions).WithOne(Sub => Sub.Subscriber).HasForeignKey(Sub => Sub.SubscriberNumber).OnDelete(DeleteBehavior.Restrict);
 
             builder.Property(S => S.SubscriberName).HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(S => S.PersonalIDNumber).HasColumnType("char(10)");

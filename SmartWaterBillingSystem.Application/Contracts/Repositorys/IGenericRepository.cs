@@ -1,6 +1,4 @@
-﻿using Ardalis.Specification;
-
-namespace SmartWaterBillingSystem.Application.Contracts.Repositorys
+﻿namespace SmartWaterBillingSystem.Application.Contracts.Repositorys
 {
     public interface IGenericRepository<TEntity> where TEntity : class
     {

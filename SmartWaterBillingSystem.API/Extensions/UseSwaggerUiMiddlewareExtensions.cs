@@ -1,6 +1,4 @@
-﻿using Scalar.AspNetCore;
-
-namespace SmartWaterBillingSystem.API.Extensions
+﻿namespace SmartWaterBillingSystem.API.Extensions
 {
     public static class UseSwaggerUiMiddlewareExtensions
     {

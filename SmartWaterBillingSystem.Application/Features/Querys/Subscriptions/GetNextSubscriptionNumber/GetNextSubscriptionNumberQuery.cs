@@ -1,7 +1,4 @@
-﻿using MediatR;
-using SmartWaterBillingSystem.Application.Common.Models;
-
-namespace SmartWaterBillingSystem.Application.Features.Querys.Subscriptions.GetNextSubscriptionNumber
+﻿namespace SmartWaterBillingSystem.Application.Features.Querys.Subscriptions.GetNextSubscriptionNumber
 {
     public class GetNextSubscriptionNumberQuery : IRequest<Result<string>>;
 

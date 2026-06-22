@@ -1,10 +1,4 @@
-﻿using Ardalis.Specification;
-using Ardalis.Specification.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using SmartWaterBillingSystem.Application.Contracts.Repositorys;
-using SmartWaterBillingSystem.Infrastructure.Data.Context;
-
-namespace SmartWaterBillingSystem.Infrastructure.Repositories
+﻿namespace SmartWaterBillingSystem.Infrastructure.Repositories
 {
     public class GenericRepository<TEntity>(SmartWaterBillingSystemDbContext _context) : IGenericRepository<TEntity> where TEntity : class
     {

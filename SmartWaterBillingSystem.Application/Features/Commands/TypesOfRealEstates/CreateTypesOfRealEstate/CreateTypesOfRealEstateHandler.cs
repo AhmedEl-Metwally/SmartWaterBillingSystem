@@ -1,10 +1,4 @@
-﻿using Mapster;
-using MediatR;
-using SmartWaterBillingSystem.Application.Common.Models;
-using SmartWaterBillingSystem.Application.Contracts.Repositorys;
-using SmartWaterBillingSystem.Domain.Entities;
-
-namespace SmartWaterBillingSystem.Application.Features.Commands.TypesOfRealEstates.CreateTypesOfRealEstate
+﻿namespace SmartWaterBillingSystem.Application.Features.Commands.TypesOfRealEstates.CreateTypesOfRealEstate
 {
     public class CreateTypesOfRealEstateHandler(IUnitOfWork _unitOfWork) : IRequestHandler<CreateTypesOfRealEstateCommand, Result<string>>
     {

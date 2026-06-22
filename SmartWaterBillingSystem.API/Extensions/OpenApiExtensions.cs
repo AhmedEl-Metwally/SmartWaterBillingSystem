@@ -1,6 +1,4 @@
-﻿using Microsoft.OpenApi;
-
-namespace SmartWaterBillingSystem.API.Extensions
+﻿namespace SmartWaterBillingSystem.API.Extensions
 {
     public static class OpenApiExtensions
     {

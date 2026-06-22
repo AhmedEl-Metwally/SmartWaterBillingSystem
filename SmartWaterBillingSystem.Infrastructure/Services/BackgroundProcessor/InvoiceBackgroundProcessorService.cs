@@ -1,13 +1,4 @@
-﻿using SmartWaterBillingSystem.Application.Contracts.BackgroundProcessor;
-using SmartWaterBillingSystem.Application.Contracts.PDF;
-using SmartWaterBillingSystem.Application.Contracts.Repositorys;
-using SmartWaterBillingSystem.Application.Contracts.Storage;
-using SmartWaterBillingSystem.Application.Contracts.WhatsAppMessage;
-using SmartWaterBillingSystem.Application.DTOS.WhatsAppMessage;
-using SmartWaterBillingSystem.Domain.Entities;
-using SmartWaterBillingSystem.Domain.Specifications.Invoices;
-
-namespace SmartWaterBillingSystem.Infrastructure.Services.BackgroundProcessor
+﻿namespace SmartWaterBillingSystem.Infrastructure.Services.BackgroundProcessor
 {
     public class InvoiceBackgroundProcessorService(IUnitOfWork _unitOfWork, IPdfService _pdfService, IWhatsAppMessageService _whatsAppMessageService, IDocumentStorageService _documentStorageService) : IInvoiceBackgroundProcessorService
     {
