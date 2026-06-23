@@ -2,6 +2,7 @@
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class BaseController : ControllerBase
     {
         protected IActionResult HandleResult<T>(Result<T> result)

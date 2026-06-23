@@ -1,5 +1,6 @@
 ﻿namespace SmartWaterBillingSystem.API.Controllers
 {
+    [AllowAnonymous]
     public class AuthenticationsController(IAuthService _authService) : BaseController
     {
         [HttpPost("register")]
