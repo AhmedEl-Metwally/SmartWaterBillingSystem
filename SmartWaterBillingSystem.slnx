@@ -1,6 +1,8 @@
 <Solution>
   <Project Path="SmartWaterBillingSystem.API/SmartWaterBillingSystem.API.csproj" />
   <Project Path="SmartWaterBillingSystem.Application/SmartWaterBillingSystem.Application.csproj" />
+  <Project Path="SmartWaterBillingSystem.Client/SmartWaterBillingSystem.Client.Client/SmartWaterBillingSystem.Client.Client.csproj" Id="5c853113-1900-4470-8285-628dcb4a4537" />
+  <Project Path="SmartWaterBillingSystem.Client/SmartWaterBillingSystem.Client/SmartWaterBillingSystem.Client.csproj" Id="300c141d-5521-4e5e-886b-fb2f7046f743" />
   <Project Path="SmartWaterBillingSystem.Domain/SmartWaterBillingSystem.Domain.csproj" />
   <Project Path="SmartWaterBillingSystem.Infrastructure/SmartWaterBillingSystem.Infrastructure.csproj" />
 </Solution>
