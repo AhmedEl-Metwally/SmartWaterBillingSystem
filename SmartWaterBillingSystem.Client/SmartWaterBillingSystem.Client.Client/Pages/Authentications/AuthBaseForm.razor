@@ -1,0 +1,20 @@
+﻿
+<MudItem xs="12" >
+    <MudTextField Label="Please enter Email" Variant="Variant.Outlined" InputType="InputType.Email" @bind-Value="AuthBaseForms.Email" For="@(() => AuthBaseForms.Email)"
+                  Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Email" AdornmentColor="Color.Primary" />
+</MudItem>
+
+<MudItem xs="12">
+    <MudTextField Label="Please enter Password" Variant="Variant.Outlined" InputType="InputType.Password" @bind-Value="AuthBaseForms.Password" For="@(() => AuthBaseForms.Password)"
+                  Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Lock" AdornmentColor="Color.Primary" />
+</MudItem>
+
+
+@code {
+    [CascadingParameter] 
+    public EditContext _editContext { get; set; } = default!;
+    [Parameter]
+    public AuthBaseForm AuthBaseForms  { get; set; } 
+
+
+}

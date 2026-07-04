@@ -37,4 +37,8 @@ global using SmartWaterBillingSystem.Infrastructure.Settings;
 global using System.Net.Http.Headers;
 global using System.Net.Http.Json;
 global using System.Text.Json.Serialization;
+global using Microsoft.IdentityModel.Tokens;
+global using System.IdentityModel.Tokens.Jwt;
+global using System.Security.Claims;
+global using System.Text;
 

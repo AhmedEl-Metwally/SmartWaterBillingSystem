@@ -1,0 +1,44 @@
+﻿@page "/Login"
+@rendermode @(new InteractiveWebAssemblyRenderMode(prerender: false))
+@* @rendermode InteractiveWebAssembly *@
+
+<MudContainer MaxWidth="MaxWidth.Medium" Class="mt-12">
+    <EditForm EditContext="@_editContext" OnValidSubmit="OnValidSubmit">
+        <DataAnnotationsValidator />
+
+        <MudGrid Justify="Justify.Center" Spacing="4">
+            <MudItem xs="12" md="8" lg="7">
+                <div style="background: #ffffff; border-radius: 24px; border: 1px solid #e0e0e0; box-shadow: 0 10px 30px rgba(0,0,0,0.04); padding: 40px;">
+                    @if (!string.IsNullOrEmpty(_serverError))
+                    {
+                        <MudAlert Severity="Severity.Error" Variant="Variant.Filled" Class="rounded-lg mb-6">@_serverError</MudAlert>
+                    }
+
+                    <div class="text-center mb-8">
+                        <MudText Typo="Typo.h4" Style="font-weight: 800; color: #1A237E; letter-spacing: -0.5px;">Welcome Back</MudText>
+                        <MudText Typo="Typo.body2" Class="mt-2" Style="color: #757575; font-size: 0.95rem;">Log in to the Smart Water Billing System</MudText>
+                    </div>
+
+                    <MudGrid Spacing="3">
+                        <AuthBaseForm AuthBaseForms="_LoginAccount.AuthBaseForms" />
+                    </MudGrid>
+
+                    <div class="d-flex justify-space-between align-center mt-8">
+                        <MudButton Link="/Register" Variant="Variant.Text" Color="Color.Secondary" StartIcon="@Icons.Material.Filled.PersonAdd" Style="text-transform: none; font-weight: 600;">Create account</MudButton>
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Disabled="@_processing" Size="Size.Large" Style="border-radius: 12px; min-width: 180px; text-transform: none; font-weight: 600; box-shadow: 0 4px 12px rgba(26, 35, 126, 0.2);">
+                            @if (_processing)
+                            {
+                                <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="me-2" Color="Color.Inherit" />
+                                <span>Logging in ....</span>
+                            }
+                            else
+                            {
+                                <span>Log in</span>
+                            }
+                        </MudButton>
+                    </div>
+                </div>
+            </MudItem>
+        </MudGrid>
+    </EditForm>
+</MudContainer>

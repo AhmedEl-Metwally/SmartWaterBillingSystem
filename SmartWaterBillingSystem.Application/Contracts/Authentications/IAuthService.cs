@@ -3,6 +3,6 @@
     public interface IAuthService
     {
         Task<Result<string>> RegisterAsync(RegisterDto registerDto);
-        Task<Result<object>> LoginAsync(LoginDto loginDto);
+        Task<Result<string>> LoginAsync(LoginDto loginDto);
     }
 }
