@@ -1,30 +1,33 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">SmartWaterBillingSystem.Client</a>
-    </div>
+﻿<div class="d-flex align-center justify-center pt-6 pb-6 px-4">
+    <MudIcon Icon="@Icons.Material.Filled.WaterDrop" Style="color: #64B5F6; font-size: 2rem;" Class="me-2" />
+    <span style="color: #ffffff; font-weight: 900; font-size: 1.3rem; letter-spacing: 0.8px; font-family: 'Poppins', 'Segoe UI', sans-serif; text-transform: uppercase;">
+        Water<span style="color: #64B5F6; font-weight: 400;">Billing</span>
+    </span>
 </div>
 
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+<MudNavMenu Class="mt-2 px-2 custom-nav-menu" Bordered="false">
+    <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home" Href="/" IconColor="Color.Inherit">Home</MudNavLink>
 
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="nav flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
+    <MudNavLink Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Apartment" Href="/TypesOfRealEstate" IconColor="Color.Inherit">
+        <span class="nav-text-single-line">Types Of Real Estate</span>
+    </MudNavLink>
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
+    <MudNavLink Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.People" Href="/Subscribers" IconColor="Color.Inherit">
+        <span class="nav-text-single-line">Subscribers</span>
+    </MudNavLink>
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
-    </nav>
-</div>
+    <MudNavLink Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Assignment" Href="/Subscriptions" IconColor="Color.Inherit">
+        <span class="nav-text-single-line">Subscriptions</span>
+    </MudNavLink>
 
+    <MudNavLink Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Assessment" Href="/SlideDistribution" IconColor="Color.Inherit">
+        <span class="nav-text-single-line">Slide Distribution</span>
+    </MudNavLink>
+
+    <MudNavLink Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.ReceiptLong" Href="/Invoices" IconColor="Color.Inherit">
+        <span class="nav-text-single-line">Invoices</span>
+    </MudNavLink>
+
+    <MudNavLink Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Login" Href="/Login" IconColor="Color.Inherit">Log in</MudNavLink>
+    <MudNavLink Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.PersonAdd" Href="/Register" IconColor="Color.Inherit">Register</MudNavLink>
+</MudNavMenu>

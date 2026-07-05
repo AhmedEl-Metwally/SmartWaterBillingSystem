@@ -15,7 +15,6 @@ namespace SmartWaterBillingSystem.Client.Client.Pages.Authentications
 
         public class LoginAccountForm
         {
-
             public AuthBaseForm AuthBaseForms { get; set; } = new();
         }
 

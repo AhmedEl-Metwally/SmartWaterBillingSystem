@@ -2,7 +2,6 @@ namespace SmartWaterBillingSystem.Client.Client.Pages.Authentications
 {
     public partial class Register(IAuthClientService _authService, ISnackbar _snackbar, NavigationManager _navigationManager)
     {
-
         private RegisterAccountForm _registerAccount { get; set; } = new();
         private bool _processing = false;
         private string _serverError = "";
@@ -20,14 +19,8 @@ namespace SmartWaterBillingSystem.Client.Client.Pages.Authentications
             [Required(ErrorMessage = "Username is required.")]
             [StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
             public string Username { get; set; } = string.Empty;
-
             public AuthBaseForm AuthBaseForms { get; set; } = new();
-
-
             public string TargetPassword => AuthBaseForms?.Password ?? string.Empty;
-
-
-
             [Required(ErrorMessage = "Password required")]
             [Compare(nameof(TargetPassword), ErrorMessage = "The two passwords do not match.")]
             public string ConfirmPassword { get; set; } = string.Empty;

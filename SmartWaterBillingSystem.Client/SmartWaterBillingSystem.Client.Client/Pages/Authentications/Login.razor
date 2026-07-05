@@ -22,10 +22,13 @@
                     <MudGrid Spacing="3">
                         <AuthBaseForm AuthBaseForms="_LoginAccount.AuthBaseForms" />
                     </MudGrid>
-
                     <div class="d-flex justify-space-between align-center mt-8">
-                        <MudButton Link="/Register" Variant="Variant.Text" Color="Color.Secondary" StartIcon="@Icons.Material.Filled.PersonAdd" Style="text-transform: none; font-weight: 600;">Create account</MudButton>
-                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Disabled="@_processing" Size="Size.Large" Style="border-radius: 12px; min-width: 180px; text-transform: none; font-weight: 600; box-shadow: 0 4px 12px rgba(26, 35, 126, 0.2);">
+                        <MudButton Href="/Register" Variant="Variant.Filled" Color="Color.Info" StartIcon="@Icons.Material.Filled.PersonAdd" Size="Size.Large"
+                                   Style="border-radius: 12px; min-width: 180px; text-transform: none; font-weight: 700; background-color: #1E88E5; box-shadow: 0 4px 14px rgba(30, 136, 229, 0.3);">
+                            Create account
+                        </MudButton>
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Info" Disabled="@_processing" Size="Size.Large"
+                                   Style="border-radius: 12px; min-width: 180px; text-transform: none; font-weight: 700; background-color: #1E88E5; box-shadow: 0 4px 14px rgba(30, 136, 229, 0.3);">
                             @if (_processing)
                             {
                                 <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="me-2" Color="Color.Inherit" />

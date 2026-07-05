@@ -58,3 +58,36 @@ h1:focus {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
 }
+
+
+.custom-nav-menu .mud-nav-link {
+    color: rgba(255, 255, 255, 0.75) !important;
+    border-radius: 12px;
+    margin-bottom: 6px;
+    padding: 10px 12px;
+    font-size: 0.9rem !important;
+    transition: all 0.3s ease;
+}
+
+    .custom-nav-menu .mud-nav-link .mud-nav-link-icon {
+        color: rgba(255, 255, 255, 0.75) !important;
+        margin-right: 10px !important;
+        font-size: 1.35rem;
+    }
+
+.nav-text-single-line {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.custom-nav-menu .mud-nav-link:hover,
+.custom-nav-menu .mud-nav-link.active {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+}
+
+    .custom-nav-menu .mud-nav-link:hover .mud-nav-link-icon,
+    .custom-nav-menu .mud-nav-link.active .mud-nav-link-icon {
+        color: #ffffff !important;
+    }
