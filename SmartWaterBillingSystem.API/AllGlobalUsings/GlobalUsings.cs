@@ -32,4 +32,7 @@ global using SmartWaterBillingSystem.Application.Features.Querys.Subscriptions.G
 global using SmartWaterBillingSystem.Application.Features.Querys.Subscriptions.GetSubscriptionsBySubscriber;
 global using SmartWaterBillingSystem.Application.Features.Querys.TypesOfRealEstates.GetAllTypesOfRealEstate;
 global using SmartWaterBillingSystem.Infrastructure.Extensions;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using Microsoft.IdentityModel.Tokens;
+global using System.Text;
 

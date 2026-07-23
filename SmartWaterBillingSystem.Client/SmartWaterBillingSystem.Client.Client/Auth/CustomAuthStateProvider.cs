@@ -4,20 +4,20 @@
     {
         private readonly ClaimsPrincipal _claimsPrincipal = new(new ClaimsIdentity());
 
-        // The basic function that the blazer calls in order to know the current user's status
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
             try
             {
-                var token = await _localStorageService.GetItemAsync<string>("authToken");
+                var token = JwtAuthorizationHandler.LocalTokenCache ?? await _localStorageService.GetItemAsync<string>("authToken");
+
                 if (string.IsNullOrEmpty(token))
                     return new AuthenticationState(_claimsPrincipal);
-                // Decrypt the token and extract the claims
+
+                JwtAuthorizationHandler.LocalTokenCache = token;
+
                 var claims = ParseClaimsFromJwt(token);
                 var identity = new ClaimsIdentity(claims, "jwt");
                 var user = new ClaimsPrincipal(identity);
-                // Preparing the virtual HttpClient with the token for the future
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
 
                 return new AuthenticationState(user);
             }
@@ -28,24 +28,28 @@
         }
 
         // User Login
-        public void NotifyUserLogin(string token)
+        public async Task NotifyUserLogin(string token)
         {
+            JwtAuthorizationHandler.LocalTokenCache = token; 
+
+            await _localStorageService.SetItemAsync("authToken", token);
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
             var claims = ParseClaimsFromJwt(token);
             var identity = new ClaimsIdentity(claims, "jwt");
             var user = new ClaimsPrincipal(identity);
-            var authState = Task.FromResult(new AuthenticationState(user));
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
-            NotifyAuthenticationStateChanged(authState);
+
+            NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(user)));
         }
 
         // The user logged out
-        public void NotifyUserLogout()
+        public async Task NotifyUserLogout()
         {
-            var authState = Task.FromResult(new AuthenticationState(_claimsPrincipal));
-            _httpClient.DefaultRequestHeaders.Authorization = null;
-            NotifyAuthenticationStateChanged(authState);
-        }
+            JwtAuthorizationHandler.LocalTokenCache = null;
+            await _localStorageService.RemoveItemAsync("authToken");
 
+            NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(_claimsPrincipal)));
+        }
 
         // Help Method
         private IEnumerable<Claim> ParseClaimsFromJwt(string token)
@@ -65,7 +69,9 @@
                             claims.Add(new Claim(key.Key, item.ToString()));
                     }
                     else
+                    {
                         claims.Add(new Claim(key.Key, key.Value?.ToString() ?? string.Empty));
+                    }
                 }
             }
             return claims;

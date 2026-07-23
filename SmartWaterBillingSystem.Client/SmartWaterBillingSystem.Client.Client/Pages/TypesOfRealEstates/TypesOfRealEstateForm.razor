@@ -1,0 +1,55 @@
+﻿@page "/TypesOfRealEstate"
+@attribute [Authorize]
+@rendermode InteractiveWebAssembly
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-6" >
+    <MudCard Elevation="4" Style="border-radius: 16px; overflow: hidden; min-height: calc(100vh - 160px); display: flex; flex-direction: column;">
+        <MudCardContent Class="pa-0">
+            <MudDataGrid Items="@_typesOfRealEstates" T="TypesOfRealEstateClientDto" Loading="@_isLoading" Bordered="false" Striped="true" Hover="true" PageSize="10" QuickFilter="@_quickFilter" Class="pa-0">
+                <ToolBarContent>
+                    <div class="d-flex align-center gap-2">
+                        <MudIcon Icon="@Icons.Material.Filled.Apartment" Color="Color.Primary" Size="Size.Large" />
+                        <MudText Typo="Typo.h5" Style="font-weight: 800; color: #1A237E;">
+                            Real Estate Types
+                        </MudText>
+                    </div>
+                    <MudSpacer/>
+                    <MudTextField @bind-Value="_searchString" Placeholder="Search..." Adornment="Adornment.Start" Immediate="true" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 " Style="max-width: 280px;" />
+                    <MudButton Variant="Variant.Filled" Color="Color.Info" StartIcon="@Icons.Material.Filled.Add" OnClick="() => OpenUpsertDialog()" Style="border-radius: 8px; font-weight: 700; text-transform: none; box-shadow: 0 4px 12px rgba(26, 35, 126, 0.2);">
+                        Add Type
+                    </MudButton>
+                </ToolBarContent>
+                <Columns>
+                    <PropertyColumn Property="T => T.HouseType" Title="Code" HeaderStyle="font-weight: 800; color: #1A237E;" CellStyle="font-weight: 600;"/>
+                    <PropertyColumn Property="T => T.TypesName" Title="Types Name" HeaderStyle="font-weight: 800; color: #1A237E;" />
+                    <PropertyColumn Property="T => T.TypesNote" Title="Description" HeaderStyle="font-weight: 800; color: #1A237E;" />
+                    <TemplateColumn Title="Actions" HeaderClass="d-flex justify-center" HeaderStyle="font-weight: 800; color: #1A237E;" CellStyle="text-align: center;">
+                        <CellTemplate>
+                            <div class="d-flex justify-center align-center gap-2">
+                                <MudIconButton Size="Size.Small" Icon="@Icons.Material.Filled.Edit" Color="Color.Info" OnClick="() => OpenUpsertDialog(context.Item)" />
+                                <MudIconButton Size="Size.Small" Icon=@Icons.Material.Filled.Delete Color="Color.Error" OnClick="() => ConfirmDelete(context.Item)" />
+                            </div>
+                           
+                        </CellTemplate>
+                   </TemplateColumn>
+                </Columns>
+                <PagerContent>
+                    <div class="d-flex align-center justify-space-between pa-4"
+                         style="background-color: #FAFAFA; border-top: 1px solid #EAEAEA; height: 64px; position: fixed; bottom: 50px; left: 276px; right: 24px; z-index: 100; box-shadow: 0 -4px 12px rgba(0,0,0,0.05); border-radius: 0 0 16px 16px;">
+                        <div class="d-flex align-center">
+                            <MudText Typo="Typo.body2" Style="color: #757575; font-weight: 600;">
+                                 @_typesOfRealEstates.Count() Real Estate Types
+                            </MudText>
+                        </div>
+
+                        <div class="d-flex align-center">
+                            <MudPagination Color="Color.Primary" Variant="Variant.Text" ShowPreviousButton="false" ShowNextButton="false" Count="@((_typesOfRealEstates.Count() + 9) / 10)" Class="pa-0 m-0" />
+                        </div>
+
+                    </div>
+                    <div style="height: 64px;"></div>
+                </PagerContent>
+           </MudDataGrid>
+        </MudCardContent>
+    </MudCard>
+</MudContainer>

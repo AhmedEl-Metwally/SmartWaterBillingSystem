@@ -1,0 +1,55 @@
+﻿
+<MudDialog Style="max-width: 550px; width: 100%; margin: auto; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.12);">
+    <TitleContent>
+        <div class="d-flex align-center gap-3 px-4 py-2" style="background-color: #FAFAFA; border-bottom: 1px solid #EAEAEA; margin: -16px -16px 0 -16px;">
+            <div class="d-flex align-center justify-center pa-2" style="background-color: #E8EAF6; border-radius: 10px;">
+                <MudIcon Icon="@(IsEditMode ? Icons.Material.Filled.Edit : Icons.Material.Filled.Apartment)" Style="color: #1A237E;" Size="Size.Medium" />
+            </div>
+            <div>
+                <MudText Typo="Typo.h6" Style="font-weight: 800; color: #1A237E; line-height: 1.2;">
+                    @(IsEditMode ? "Edit Type of Real Estate" : "Add Type of Real Estate")
+                </MudText>
+                <MudText Typo="Typo.caption" Style="color: #757575; font-weight: 600;">
+                    @(IsEditMode ? "Update real estate category details" : "Create a new real estate category")
+                </MudText>
+            </div>
+        </div>
+    </TitleContent>
+    <DialogContent >
+        <div class="px-4 py-2">
+            <MudForm @ref="_form" @bind-IsValid="_isValid">
+                <MudGrid Spacing="1">
+                    <MudItem xs="12">
+                        <MudTextField T="string" Label="House Type Code (1 Character)" @bind-Value="_tempDialogModel.HouseType" Required="true" RequiredError="House Type Code is required" MaxLength="1" Disabled="IsEditMode" Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Numbers" AdornmentColor="Color.Primary" HelperText="Enter the house type code (1 character)" Class="rounded-lg" />
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudTextField T="string" Label="House Type Name" @bind-Value="_tempDialogModel.TypesName" Required="true" RequiredError="House Type Name is required" MaxLength="15" Counter="15" Variant="Variant.Outlined" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Label" AdornmentColor="Color.Primary" HelperText="Enter the house type name" Class="rounded-lg" />
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudTextField T="string"Label="Description" @bind-Value="_tempDialogModel.TypesNote" Lines="3" MaxLength="100" Counter="100"Variant="Variant.Outlined" Adornment="Adornment.Start"AdornmentIcon="@Icons.Material.Filled.Description" AdornmentColor="Color.Primary" HelperText="Enter the description" Class="rounded-lg" />
+                    </MudItem>
+                </MudGrid>
+            </MudForm>
+        </div>
+    </DialogContent>
+    <DialogActions >
+        <div Class="pa-4" Style="background-color: #FAFAFA; border-top: 1px solid #EAEAEA;">
+            <div class="d-flex align-center justify-end gap-2 w-100">
+
+
+                <MudButton OnClick="Cancel" Variant="Variant.Text" Style="color: #757575; font-weight: 700; text-transform: none; border-radius: 8px;">Cancel</MudButton>
+                    <MudButton Color="Color.Info" Variant="Variant.Filled" OnClick="Submit" Disabled=" _isSaving" Style="background-color: #1E88E5; border-radius: 8px; font-weight: 700; text-transform: none; box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25); min-width: 100px;">
+                    @if (_isSaving)
+                    {
+                        <MudProgressCircular class="ms-n1" Size="Size.Small" Indeterminate="true" />
+                        <span class="ms-2"> Saving...</span>
+                    }
+                    else
+                    {
+                        <span>Save</span>
+                    }
+                </MudButton>
+            </div>
+        </div>
+    </DialogActions>
+</MudDialog>

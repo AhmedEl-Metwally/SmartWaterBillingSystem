@@ -1,0 +1,28 @@
+﻿
+<MudDialog Style="max-width: 440px; width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.18);">
+    <DialogContent>
+        <div class="d-flex flex-column align-center text-center pt-6 px-4 pb-2">
+            <div class="d-flex align-center justify-center mb-4" style="width: 72px; height: 72px; border-radius: 50%; background-color: #FFEBEE; border: 4px solid #FFCDD2;">
+                <MudIcon Icon="@Icons.Material.Filled.DeleteForever" Style="color: #D32F2F; font-size: 2.2rem;" />
+            </div>
+            <MudText Typo="Typo.h5" Style="font-weight: 800; color: #1A237E; letter-spacing: -0.5px;"> Delete Real Estate Type? </MudText>
+            <MudText Typo="Typo.body2" Class="mt-1 mb-4" Style="color: #757575; font-weight: 500;"> This action cannot be undone. Are you sure you want to proceed? </MudText>
+
+            <div class="w-100 pa-3 my-2 d-flex align-center justify-center gap-2"style="background-color: #F5F5F5; border-radius: 12px; border: 1px dashed #E0E0E0;">
+                <MudIcon Icon="@Icons.Material.Filled.Apartment" Style="color: #5C6BC0; font-size: 1.2rem;" />
+                <MudText Typo="Typo.subtitle1" Style="font-weight: 700; color: #212121; word-break: break-word;"> @ItemName </MudText>
+            </div>
+            <MudText Typo="Typo.caption" Class="mt-2" Style="color: #E53935; font-weight: 600;"> ⚠️ All associated data for this record will be permanently deleted. </MudText>
+        </div>
+    </DialogContent>
+
+    <DialogActions>
+        <div class="pa-4 w-100 mt-2" style="background-color: #FAFAFA; border-top: 1px solid #F0F0F0;">
+            <div class="d-flex align-center justify-space-between gap-3 w-100">
+                <MudButton OnClick="Cancel" Variant="Variant.Outlined" Style="flex: 1; border-color: #E0E0E0; color: #616161; font-weight: 700; text-transform: none; border-radius: 10px; height: 44px;"> Cancel </MudButton>
+                <MudButton Color="Color.Error"Variant="Variant.Filled"OnClick="Confirm" Style="flex: 1; background-color: #D32F2F; color: #FFF; font-weight: 700; text-transform: none; border-radius: 10px; height: 44px; box-shadow: 0 4px 14px rgba(211, 47, 47, 0.3);"> Delete </MudButton>
+            </div>
+        </div>
+    </DialogActions>
+</MudDialog>
+

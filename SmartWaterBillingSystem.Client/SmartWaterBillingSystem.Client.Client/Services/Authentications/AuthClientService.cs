@@ -1,6 +1,6 @@
 ﻿namespace SmartWaterBillingSystem.Client.Client.Services.Authentications
 {
-    public class AuthClientService(HttpClient _httpClient, ILocalStorageService _localStorageService, AuthenticationStateProvider _authenticationStateProvider) : IAuthClientService
+    public class AuthClientService(HttpClient _httpClient,  AuthenticationStateProvider _authenticationStateProvider) : IAuthClientService
     {
         public async Task<string?> RegisterAsync(RegisterClientDto registerClientDto)
         {
@@ -30,9 +30,8 @@
             if (apiResult is not null && apiResult.IsSuccess && !string.IsNullOrEmpty(apiResult.Value))
             {
                 var token = apiResult.Value;
-                await _localStorageService.SetItemAsync("authToken", token);
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
-                ((CustomAuthStateProvider)_authenticationStateProvider).NotifyUserLogin(token);
+                JwtAuthorizationHandler.LocalTokenCache = token;
+                await ((CustomAuthStateProvider)_authenticationStateProvider).NotifyUserLogin(token);
                 return null;
             }
             else
@@ -45,10 +44,10 @@
 
         public async Task LogoutAsync()
         {
-            await _localStorageService.RemoveItemAsync("authToken");
-            _httpClient.DefaultRequestHeaders.Authorization = null;
-            ((CustomAuthStateProvider)_authenticationStateProvider).NotifyUserLogout();
-
+            JwtAuthorizationHandler.LocalTokenCache = null;
+            await ((CustomAuthStateProvider)_authenticationStateProvider).NotifyUserLogout();
         }
     }
 }
+
+

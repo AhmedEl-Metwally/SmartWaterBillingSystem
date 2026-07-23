@@ -22,7 +22,6 @@ namespace SmartWaterBillingSystem.Client.Client.Pages.Authentications
         {
             _processing = true;
             _serverError = "";
-
             try
             {
                 var loginDto = new LoginClientDto(_LoginAccount.AuthBaseForms.Email, _LoginAccount.AuthBaseForms.Password);
@@ -31,7 +30,8 @@ namespace SmartWaterBillingSystem.Client.Client.Pages.Authentications
                 if (result is null)
                 {
                     _snackbar.Add("Logged in successfully.", Severity.Success);
-                    _navigationManager.NavigateTo("/TypesOfRealEstate", forceLoad: false, replace: true);
+                    await Task.Delay(100);
+                    _navigationManager.NavigateTo("/TypesOfRealEstate", forceLoad: false);
                 }
                 else
                 {
@@ -49,6 +49,7 @@ namespace SmartWaterBillingSystem.Client.Client.Pages.Authentications
             {
                 _processing = false;
             }
+
         }
     }
 }

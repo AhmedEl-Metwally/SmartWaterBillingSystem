@@ -6,27 +6,21 @@
         {
             services.AddMudServices();
             services.AddBlazoredLocalStorage();
+            services.AddAuthorizationCore();
 
             services.AddScoped<IAuthClientService, AuthClientService>();
-            services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
-            //services.AddScoped<CustomAuthStateProvider>();
+            services.AddScoped<ITypesOfRealEstateService, TypesOfRealEstateService>();
+
+            services.AddScoped<CustomAuthStateProvider>();
+            services.AddScoped<AuthenticationStateProvider>(sp => sp.GetRequiredService<CustomAuthStateProvider>());
+
             services.AddTransient<JwtAuthorizationHandler>();
-
-            //services.AddHttpClient("ServerApi", client =>
-            //{
-            //    client.BaseAddress = new Uri(apiBaseUrl);
-            //})
-            //.AddHttpMessageHandler<JwtAuthorizationHandler>();
-
-            //services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("ServerApi"));
-
-            services.AddScoped(S =>
+            services.AddHttpClient("SmartWaterAPI", client =>
             {
-                var handler = S.GetRequiredService<JwtAuthorizationHandler>();
-                handler.InnerHandler = new HttpClientHandler();
-                return new HttpClient(handler) { BaseAddress = new Uri(apiBaseUrl) };
-            });
-            // services.AddScoped(S => new HttpClient { BaseAddress = new Uri(apiBaseUrl) });
+                client.BaseAddress = new Uri(apiBaseUrl);
+            })
+            .AddHttpMessageHandler<JwtAuthorizationHandler>();
+            services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("SmartWaterAPI"));
 
             return services;
         }

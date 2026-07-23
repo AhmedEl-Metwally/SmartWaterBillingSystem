@@ -1,0 +1,11 @@
+/* CSS for TypesOfRealEstateUpdate component */
+
+::deep .mud-dialog {
+    height: auto !important;
+    max-height: fit-content !important;
+}
+
+::deep .mud-dialog-content {
+    flex-grow: 0 !important;
+    padding: 12px 24px !important;
+}

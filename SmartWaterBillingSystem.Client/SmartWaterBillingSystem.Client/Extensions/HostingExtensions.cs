@@ -4,6 +4,7 @@
     {
         public static WebApplicationBuilder ConfigureServices(this WebApplicationBuilder builder)
         {
+            builder.Services.AddAuthorization();
             builder.Services.AddRazorComponents().AddInteractiveWebAssemblyComponents();
             builder.Services.AddClientServices("https://localhost:44318/");
 
