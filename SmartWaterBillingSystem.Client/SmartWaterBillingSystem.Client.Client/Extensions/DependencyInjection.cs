@@ -10,6 +10,7 @@
 
             services.AddScoped<IAuthClientService, AuthClientService>();
             services.AddScoped<ITypesOfRealEstateService, TypesOfRealEstateService>();
+            services.AddScoped<ISubscriberService, SubscriberService>();
 
             services.AddScoped<CustomAuthStateProvider>();
             services.AddScoped<AuthenticationStateProvider>(sp => sp.GetRequiredService<CustomAuthStateProvider>());

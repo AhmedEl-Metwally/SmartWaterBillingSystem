@@ -1,0 +1,13 @@
+﻿<div class="d-flex align-center gap-2">
+    <MudTextField @bind-Value="SearchId" Placeholder="Enter Subscriber ID" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0" style="max-width: 250px;" OnKeyDown="OnKeyDownHandler" />
+    <MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="GetSubscriberByIdAsync" Disabled="_isSearching" Style="border-radius: 8px; font-weight: 700; text-transform: none;">
+        @if (_isSearching)
+        {
+            <MudProgressCircular Size="Size.Small" Indeterminate="true" />
+        }
+        else
+        {
+            <span>Find</span>
+        }
+    </MudButton>
+</div>

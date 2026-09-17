@@ -19,6 +19,12 @@ global using System.Security.Claims;
 global using System.Text.Json;
 global using SmartWaterBillingSystem.Client.Client.Models.TypesOfRealEstate;
 global using SmartWaterBillingSystem.Client.Client.Models.Results;
+global using SmartWaterBillingSystem.Client.Client.Models.Subscribers;
+global using SmartWaterBillingSystem.Client.Client.Services.SubscriberClient;
+global using SmartWaterBillingSystem.Client.Client.Pages.TypesOfRealEstates;
+ global using Microsoft.AspNetCore.Components.Web;
+
+
 
 
 
